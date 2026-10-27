@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monoclonal Antibodies · Aniket Nigam</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#92d9a4;--t:#052214;--m:#0c3322;--a:#0f8a63;--b:#0d7a8a;--c:#1b5fa8;--g:#0a6b46;--gl:rgba(255,255,255,.5);--ln:rgba(255,255,255,.72);--fs:clamp(1.02rem,min(1.75vw,2.55vh),1.55rem);color-scheme:light;box-sizing:border-box}
+*{box-sizing:border-box;margin:0}
+html{--sk:0;scroll-snap-type:y proximity;scroll-behavior:smooth;scrollbar-width:none}html::-webkit-scrollbar{display:none}
+body{background:#8fd5a1;color:var(--t);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter',system-ui,sans-serif;overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:radial-gradient(120% 95% at 72% 22%,#98dba6,#8fd5a1 55%,#88d09b)}
+#bg i{position:absolute;border-radius:50%;filter:blur(64px);will-change:transform;animation:mv var(--T,28s) ease-in-out infinite alternate}
+#bg .d{background:radial-gradient(circle,rgba(72,140,106,.96),rgba(84,152,116,.6) 52%,transparent 72%)}
+#bg .l{background:radial-gradient(circle,rgba(170,238,182,.95),transparent 70%)}
+@keyframes mv{to{transform:translate(var(--x),var(--y)) scale(var(--s))}}
+#c{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+#cur{position:fixed;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid rgba(5,34,20,.55);border-radius:50%;pointer-events:none;z-index:50;transition:width .25s,height .25s,margin .25s,background .25s;left:-50px;top:-50px}
+#cur.h{width:58px;height:58px;margin:-29px 0 0 -29px;background:rgba(255,255,255,.3)}
+section{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:9vh 11vw 9vh 6vw;scroll-snap-align:start}
+.w{width:min(54vw,830px);transform:translate3d(0,calc(var(--p,0)*55px),0) skewY(calc(var(--sk,0)*1deg));opacity:calc(1 - var(--p,0)*var(--p,0)*1.5);filter:blur(calc(var(--p,0)*var(--p,0)*7px))}
+.r{opacity:0;transform:translateY(30px) scale(.97);filter:blur(10px);transition:all .8s cubic-bezier(.2,.8,.2,1)}
+section.on .r{opacity:1;transform:none;filter:none;transition-delay:calc(.12s + var(--i,0)*.08s)}
+.tag{display:inline-block;font-size:clamp(.82rem,1.15vw,1.05rem);letter-spacing:.2em;text-transform:uppercase;color:var(--g);font-weight:700;padding:7px 16px;border-radius:30px;background:rgba(255,255,255,.5);border:1px solid var(--ln);margin-bottom:2vh}
+h1{font-size:clamp(2.8rem,min(7.6vw,12vh),6.2rem);line-height:1.04;font-weight:800;letter-spacing:-.035em}
+h2{font-size:clamp(2.2rem,min(5vw,7.6vh),4.2rem);line-height:1.1;font-weight:800;letter-spacing:-.03em;margin-bottom:2.2vh}
+.g{display:block;background:linear-gradient(90deg,#064a2e,var(--a),var(--b),var(--c),#064a2e);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 7s linear infinite;padding-bottom:.06em}
+@keyframes sh{to{background-position:200% 0}}
+p,li{color:var(--m);line-height:1.5;font-size:var(--fs);font-weight:500}
+.q{font-size:calc(var(--fs)*1.28);font-style:italic;color:var(--t);margin:2.4vh 0}
+ul{list-style:none;padding:0;display:grid;gap:12px}li{padding-left:32px;position:relative}li:before{content:"";position:absolute;left:0;top:calc(var(--fs)*.75 - 6px);width:12px;height:12px;border-radius:50%;background:var(--g);box-shadow:0 0 0 4px rgba(255,255,255,.5)}
+li b,.gl b{color:var(--t);font-weight:800}
+small{font-size:calc(var(--fs)*.72);color:var(--m);opacity:.9;display:block;margin-top:1.4vh;font-weight:500}
+.gl{position:relative;overflow:hidden;background:var(--gl);border:1px solid var(--ln);border-radius:22px;padding:12px 20px;margin-bottom:10px;backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 14px 34px rgba(8,70,44,.2);transition:transform .25s ease-out,background .3s;font-size:var(--fs);color:var(--m);line-height:1.4;font-weight:500;will-change:transform}
+.gl:after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0),rgba(255,255,255,.5),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.gl:hover:after{opacity:1}
+.rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.6);transform:scale(0);animation:rp .8s ease-out forwards;pointer-events:none}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+.ch{cursor:pointer;user-select:none}.ch>b{display:flex;justify-content:space-between;align-items:center;font-size:calc(var(--fs)*1.1)}
+.ch>b:after{content:"+";color:var(--g);font-size:1.5em;font-weight:600;transition:transform .35s}.ch.open>b:after{transform:rotate(135deg)}
+.ch .d{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.2,.8,.2,1),margin .4s}.ch.open .d{max-height:460px;margin-top:8px}
+.ch.sel{border-color:var(--g);background:rgba(255,255,255,.7)}
+.row{display:flex;gap:10px}.row .gl{flex:1;margin:0 0 10px}
+.tl{position:relative;padding-left:36px;margin-bottom:14px}
+.tl:before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:4px;border-radius:4px;background:linear-gradient(var(--g),var(--c)) top/100% calc(var(--tp,0)*100%) no-repeat,rgba(5,34,20,.16)}
+.st{position:relative;padding:6px 0;opacity:.4;transition:opacity .5s,transform .5s;transform:translateX(-6px)}.st.lit{opacity:1;transform:none}
+.st:before{content:"";position:absolute;left:-36px;top:calc(6px + var(--fs)*.78 - 10px);width:20px;height:20px;border-radius:50%;background:#fff;border:2px solid rgba(5,34,20,.3);transition:all .4s}.st.lit:before{background:var(--g);border-color:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.45),0 0 16px rgba(10,107,70,.6)}
+.st b{color:var(--t);font-weight:800}.st span{display:block;font-size:calc(var(--fs)*.9);color:var(--m)}
+.bar{height:7px;border-radius:7px;background:rgba(5,34,20,.15);margin-top:6px;overflow:hidden}.bar i{display:block;height:100%;width:0;border-radius:7px;background:linear-gradient(90deg,var(--g),var(--c));transition:width 1.5s cubic-bezier(.2,.8,.2,1) .5s}
+section.on .bar i{width:var(--v)}
+.er{display:flex;justify-content:space-between;gap:10px}.er em{font-style:normal;color:var(--g);font-weight:800}
+.btn{margin-top:10px;padding:10px 22px;border-radius:30px;border:1px solid rgba(255,255,255,.6);background:#0a6b46;color:#fff;font-weight:700;cursor:pointer;font-size:calc(var(--fs)*.95);transition:transform .2s ease-out,background .3s;box-shadow:0 8px 20px rgba(8,70,44,.3)}.btn:hover{background:#064a2e}
+.pdr{display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap;margin-top:4px}.pdr .btn{margin-top:0}
+#pd{flex:1 1 230px;width:100%;max-width:340px;display:block}
+#pd .ab{opacity:0;transform:translateY(-14px);transition:all .6s}.blk #pd .ab{opacity:1;transform:none}
+#pd .cl{transition:all .5s}.blk #pd .tc{fill:rgba(255,255,255,.6);stroke:#0a6b46}
+.big{font-size:clamp(1.7rem,min(3.5vw,5.2vh),2.9rem);font-weight:800;line-height:1.2;margin-top:2vh}
+.refs li{font-size:calc(var(--fs)*.85);padding-left:0}.refs li:before{display:none}
+#rw{position:fixed;right:max(12px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;z-index:40}
+.nav{width:46px;height:46px;border-radius:50%;border:1px solid var(--ln);background:rgba(255,255,255,.55);color:var(--g);display:grid;place-items:center;cursor:pointer;padding:0;backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 8px 22px rgba(8,70,44,.25);transition:transform .2s ease-out,background .25s,color .25s,opacity .3s;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.nav:hover{background:var(--g);color:#fff;transform:scale(1.08)}
+.nav:active{transform:scale(.92)}
+.nav:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+.nav.off{opacity:.3;pointer-events:none}
+#ruler{position:relative;flex:none;width:46px;height:min(62vh,520px);border-radius:26px;background:rgba(255,255,255,.4);border:1px solid var(--ln);z-index:40;cursor:grab;touch-action:none;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 6px rgba(8,70,44,.18),0 8px 30px rgba(8,70,44,.22)}
+#ruler .t{position:absolute;left:9px;height:1.5px;background:rgba(5,34,20,.42);border-radius:2px;transition:none}
+#ruler .t.s{background:#052214}
+#ind{position:absolute;left:5px;width:36px;height:6px;border-radius:6px;background:#e5384b;box-shadow:0 0 12px rgba(229,56,75,.8);margin-top:-3px}
+#lab{position:absolute;right:58px;white-space:nowrap;font-size:clamp(.85rem,1.2vw,1.05rem);font-weight:700;padding:7px 14px;border-radius:14px;background:rgba(255,255,255,.88);color:var(--t);border:1px solid var(--ln);transform:translateY(-50%);pointer-events:none;transition:opacity .3s;box-shadow:0 6px 18px rgba(8,70,44,.2)}
+#cnt{position:fixed;right:max(12px,env(safe-area-inset-right,0px));top:max(12px,2.2vh);z-index:40;pointer-events:none;font-weight:700;font-size:clamp(.9rem,1.25vw,1.15rem);letter-spacing:.12em;color:var(--t);padding:7px 16px;border-radius:30px;background:rgba(255,255,255,.5);border:1px solid var(--ln);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 6px 18px rgba(8,70,44,.18)}#cnt b{color:var(--g)}
+.num{position:absolute;left:2vw;bottom:3vh;font-size:min(34vw,430px);font-weight:800;line-height:.8;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.42);pointer-events:none;z-index:-1;transform:translateY(calc(var(--p,0)*-100px));user-select:none}
+#pg{position:fixed;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#064a2e,var(--a),var(--b),var(--c));transform-origin:0 50%;transform:scaleX(0);z-index:55}
+#sw{position:fixed;top:0;bottom:0;left:0;width:30vw;pointer-events:none;z-index:45;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);opacity:0;transform:translateX(-40vw) skewX(-12deg)}
+#sw.go{animation:swp 1s ease-out}@keyframes swp{0%{opacity:1;transform:translateX(-40vw) skewX(-12deg)}100%{opacity:0;transform:translateX(120vw) skewX(-12deg)}}
+.ring{position:fixed;width:20px;height:20px;margin:-10px 0 0 -10px;border:2px solid var(--g);border-radius:50%;pointer-events:none;z-index:60;animation:rg .9s ease-out forwards}@keyframes rg{to{transform:scale(9);opacity:0}}
+section.dn{--fs:clamp(.9rem,min(1.45vw,2.05vh),1.3rem);padding-top:6vh;padding-bottom:6vh}section.dn h2{font-size:clamp(1.9rem,min(4.1vw,6vh),3.3rem);margin-bottom:1.4vh}section.dn .tag{margin-bottom:1.2vh}section.dn .gl{padding:9px 18px;margin-bottom:8px}section.dn .st{padding:3px 0}section.dn .tl{margin-bottom:10px}section.fin{align-items:flex-start;padding-top:11vh;text-align:center}section.fin .w{margin:0 auto;width:100%}section.fin .tag{margin-bottom:2vh}
+@media(max-width:800px){section{align-items:flex-end;padding:12vh 62px 12vh 18px}.w{width:100%}.row{flex-direction:column;gap:0}#cur{display:none}#ruler{width:40px}#ruler .t{left:7px}#ind{left:4px;width:30px}.nav{width:40px;height:40px}.nav svg{width:19px;height:19px}#lab{right:52px}}
+@media(max-width:800px){section.dn{--fs:clamp(.9rem,min(1.45vw,2.05vh),1.3rem);padding-top:6vh;padding-bottom:6vh}section.dn h2{font-size:clamp(1.9rem,min(4.1vw,6vh),3.3rem);margin-bottom:1.4vh}section.dn .tag{margin-bottom:1.2vh}section.dn .gl{padding:9px 18px;margin-bottom:8px}section.dn .st{padding:3px 0}section.dn .tl{margin-bottom:10px}section.fin{align-items:flex-start}.num{font-size:60vw}}
+@media(prefers-reduced-motion:reduce){.ring,#sw{display:none}*{animation:none!important;transition-duration:.01s!important}html{scroll-behavior:auto}}
+</style></head><body>
+<div id="bg"><i class="d" style="left:-20vmax;top:8vmax;width:66vmax;height:66vmax;--x:11vmax;--y:-7vmax;--s:1.15;--T:27s"></i><i class="d" style="left:10vmax;top:-30vmax;width:50vmax;height:50vmax;--x:-8vmax;--y:9vmax;--s:1.18;--T:31s"></i><i class="d" style="left:auto;right:-22vmax;top:28vmax;width:54vmax;height:54vmax;--x:-9vmax;--y:-6vmax;--s:1.12;--T:29s"></i><i class="d" style="left:auto;right:-4vmax;bottom:-34vmax;top:auto;width:58vmax;height:58vmax;--x:-10vmax;--y:-8vmax;--s:1.15;--T:35s"></i><i class="d" style="left:-24vmax;bottom:-26vmax;top:auto;width:50vmax;height:50vmax;--x:9vmax;--y:-6vmax;--s:1.12;--T:25s"></i><i class="l" style="left:32vw;top:20vh;width:54vmax;height:54vmax;--x:8vmax;--y:10vmax;--s:1.2;--T:33s"></i></div><canvas id="c"></canvas><div id="cur"></div>
+
+<section><div class="w">
+<span class="tag r">Immunology × Biotechnology</span>
+<h1><span data-d>Monoclonal</span><span class="g" data-d>Antibodies</span></h1>
+<p class="r" style="--i:3;font-size:calc(var(--fs)*1.25);margin-top:1.2vh">Principles, Production and Applications</p>
+<p class="q r" style="--i:4">How can an antibody recognise a specific target?</p>
+<div class="gl r" style="--i:5;display:inline-block"><b style="font-size:calc(var(--fs)*1.3)">Aniket Nigam</b><br>B.Sc. Biotechnology · 2nd Year</div>
+<p class="r" style="--i:6;font-size:calc(var(--fs)*.85);margin-top:3vh">Use ← → keys or the arrow buttons · F = fullscreen · drag the ruler →</p>
+</div></section>
+
+<section><div class="w">
+<span class="tag r">01 · Basics</span>
+<h2><span data-d>What is a</span><span class="g" data-d>monoclonal antibody?</span></h2>
+<ul class="r" style="--i:2"><li>Antibodies are proteins produced naturally by <b>B cells</b>.</li><li>A monoclonal antibody comes from a <b>single selected clone</b>.</li><li>All copies recognise the same <b>epitope</b>.</li><li><b>Antigen</b> = the target molecule. <b>Epitope</b> = the exact site the antibody binds.</li></ul>
+<div class="row r" style="--i:3;margin-top:14px"><div class="gl ch" data-hl="1"><b>Fab</b><small style="margin:0">binds antigen · click</small></div><div class="gl ch" data-hl="0"><b>Fc</b><small style="margin:0">engages immune cells · click</small></div></div>
+<small class="r" style="--i:4">Sources: [2]</small>
+</div></section>
+
+<section class="dn"><div class="w">
+<span class="tag r">02 · Production</span>
+<h2><span data-d>Hybridoma</span><span class="g" data-d>technology</span></h2>
+<div class="tl r" id="tl" style="--i:2">
+<div class="st"><b>1 Immunisation</b><span>Mouse receives the target antigen.</span></div>
+<div class="st"><b>2 B-cell harvesting</b><span>Antibody-producing B cells taken from spleen.</span></div>
+<div class="st"><b>3 Fusion with myeloma cells</b><span>Hybridomas form.</span></div>
+<div class="st"><b>4 HAT selection</b><span>Only hybridomas survive.</span></div>
+<div class="st"><b>5 Screening and cloning</b><span>ELISA finds the right clones.</span></div>
+<div class="st"><b>6 Production and purification</b><span>Expand the clone, harvest, purify.</span></div></div>
+<div class="gl ch r" style="--i:3"><b>Myeloma cells: immortality</b><div class="d">Cancerous plasma cells that divide indefinitely. Fusion gives the hybridoma long-term growth.</div></div>
+<div class="gl ch r" style="--i:4"><b>HAT medium: selection</b><div class="d">Aminopterin blocks the main nucleotide pathway. HGPRT-deficient myeloma cells die, unfused B cells die out, hybrids survive.</div></div>
+<div class="gl ch r" style="--i:5"><b>ELISA: screening purpose</b><div class="d">Tests culture fluid to find which clones secrete antibody that binds the target antigen.</div></div>
+<small>Sources: [1], [2]</small>
+</div></section>
+
+<section><div class="w">
+<span class="tag r">03 · Engineering</span>
+<h2><span data-d>Antibody</span><span class="g" data-d>engineering</span></h2>
+<div class="gl r" style="--i:2"><div class="er"><b>Murine</b><em>-omab · muromonab-CD3</em></div>Entirely mouse sequences</div>
+<div class="gl r" style="--i:3"><div class="er"><b>Chimeric</b><em>-ximab · rituximab</em></div>Mouse variable regions, human constant regions</div>
+<div class="gl r" style="--i:4"><div class="er"><b>Humanized</b><em>-zumab · trastuzumab</em></div>Mouse CDRs in a human framework</div>
+<div class="gl r" style="--i:5"><div class="er"><b>Fully human</b><em>-umab · adalimumab</em></div>Fully human sequences</div>
+<small class="r" style="--i:6">Suffixes are historical naming examples; the WHO INN scheme has since been revised. Sources: [2], [5]</small>
+</div></section>
+
+<section class="dn"><div class="w">
+<span class="tag r">04 · Action</span>
+<h2><span data-d>Mechanisms</span><span class="g" data-d>of action</span></h2>
+<div class="gl ch r" style="--i:2"><b>Neutralisation</b><div class="d">Binds a virus or toxin and blocks entry or activity.<br><b>Example:</b> palivizumab binds the RSV F protein.</div></div>
+<div class="gl ch r" style="--i:3"><b>Immune-cell recruitment</b><div class="d">Fc region engages Fc receptors on NK cells and macrophages, and complement.<br><b>Example:</b> rituximab (CD20) can trigger ADCC.</div></div>
+<div class="gl ch open r" id="pdc" style="--i:4"><b>Receptor blocking · PD-1</b><div class="d" style="max-height:460px">PD-1 on T cells is a brake when it meets PD-L1 on tumour cells. Pembrolizumab binds PD-1 and blocks PD-L1/PD-L2 binding, so T cells can attack.
+<div class="pdr"><svg id="pd" viewBox="0 0 340 134"><circle cx="64" cy="70" r="44" fill="rgba(255,255,255,.3)" stroke="#052214" stroke-width="2" class="tc cl"/><circle cx="276" cy="70" r="44" fill="rgba(215,38,61,.22)" stroke="#d7263d" stroke-width="2"/><line x1="108" y1="70" x2="144" y2="70" stroke="#1b5fa8" stroke-width="5" stroke-linecap="round"/><circle cx="148" cy="70" r="8" fill="#1b5fa8"/><line x1="232" y1="70" x2="196" y2="70" stroke="#d7263d" stroke-width="5" stroke-linecap="round"/><circle cx="192" cy="70" r="8" fill="#d7263d"/><text x="64" y="74" fill="#052214" font-size="12.5" font-weight="700" text-anchor="middle">T cell</text><text x="276" y="74" fill="#052214" font-size="12.5" font-weight="700" text-anchor="middle">Tumour</text><g class="ab"><path d="M170 8v38M170 30l-15 16M170 30l15 16" stroke="#0a6b46" stroke-width="8" stroke-linecap="round" fill="none"/></g><text id="pdt" x="170" y="128" fill="#0c3322" font-size="11" font-weight="600" text-anchor="middle">Brake ON: T cell inhibited</text></svg><button class="btn" id="pdb">Add pembrolizumab</button></div></div></div>
+<div class="gl ch r" style="--i:5"><b>Antibody–drug conjugates</b><div class="d">Antibody carries a cytotoxic drug to cells showing the target.<br><b>Example:</b> trastuzumab emtansine → HER2-positive cells.</div></div>
+<small>Sources: [2], [4]</small>
+</div></section>
+
+<section><div class="w">
+<span class="tag r">05 · Applications</span>
+<h2><span data-d>Where they</span><span class="g" data-d>are used</span></h2>
+<div class="gl r" style="--i:2"><b>Cancer · Trastuzumab</b><br>Targets HER2 on HER2-positive tumour cells.</div>
+<div class="gl r" style="--i:3"><b>Autoimmune disease · Adalimumab</b><br>Binds TNF-α, a pro-inflammatory cytokine (e.g. rheumatoid arthritis).</div>
+<div class="gl r" style="--i:4"><b>Infections · Palivizumab</b><br>Binds the RSV F protein; prevents severe RSV disease in high-risk infants.</div>
+<div class="gl r" style="--i:5"><b>Diagnostics · Pregnancy tests</b><br>Antibodies can detect hCG, a hormone produced during pregnancy.</div>
+<small>Sources: [2], [4]</small>
+</div></section>
+
+<section><div class="w">
+<span class="tag r">06 · Case study</span>
+<h2><span data-d>Trastuzumab</span><span class="g" data-d>in practice</span></h2>
+<ul class="r" style="--i:2"><li><b>HER2-positive breast cancer:</b> extra HER2 gene copies or too much HER2 protein drive growth signals.</li><li><b>Trastuzumab:</b> a humanized antibody that binds the HER2 receptor.</li><li><b>Biomarker testing:</b> HER2 status in the tumour decides who receives the drug.</li></ul>
+<div class="row r" style="--i:3;margin-top:14px"><div class="gl"><b style="color:#0a6b46">Benefit</b><br>With chemotherapy in metastatic disease, median survival rose from 20.3 to 25.1 months in one randomised trial.</div><div class="gl"><b style="color:#c4121f">Limitation</b><br>Boxed warning for cardiomyopathy: heart function must be monitored.</div></div>
+<small>Sources: [3], [4]</small>
+</div></section>
+
+<section><div class="w">
+<span class="tag r">07 · Quality</span>
+<h2><span data-d>Quality control</span><span class="g" data-d>and testing</span></h2>
+<p class="r" style="--i:2;color:var(--g);font-weight:600;margin-bottom:10px">ELISA screening → culture → purification → release testing</p>
+<div class="gl ch r" style="--i:3"><b>Binding specificity</b><div class="d">ELISA and other binding assays confirm the intended target is bound and not unrelated molecules.</div></div>
+<div class="gl ch r" style="--i:4"><b>Antibody concentration</b><div class="d">Protein quantification (e.g. UV absorbance) so dose and assay amounts are accurate.</div></div>
+<div class="gl ch r" style="--i:5"><b>Purity and consistency</b><div class="d">Chromatography and gel profiles compared between batches.</div></div>
+<div class="gl ch r" style="--i:6"><b>Contamination testing</b><div class="d">Endotoxin, microbial and mycoplasma checks, and viral safety.</div></div>
+<small>The exact tests depend on the product and manufacturing stage.</small>
+</div></section>
+
+<section><div class="w">
+<span class="tag r">08 · Evaluation</span>
+<h2><span data-d>Strengths and</span><span class="g" data-d>limitations</span></h2>
+<div class="row r" style="--i:2"><div class="gl"><b style="color:#0a6b46">Advantages</b><br>High target specificity<br>Multiple therapeutic uses<br>Engineered formats</div><div class="gl"><b style="color:#c4121f">Limitations</b><br>High cost<br>Infusion/injection reactions<br>Possible immunogenicity<br>Tissue penetration challenges<br>Treatment resistance</div></div>
+<div class="gl r" style="--i:3"><b>High specificity can improve targeting, but adverse effects may still occur.</b></div>
+<small>Sources: [2]</small>
+</div></section>
+
+<section><div class="w">
+<span class="tag r">09 · Conclusion</span>
+<h2><span data-d>Three</span><span class="g" data-d>takeaways</span></h2>
+<div class="gl r" style="--i:2"><b>1</b> Monoclonal antibodies recognise specific molecular targets.</div>
+<div class="gl r" style="--i:3"><b>2</b> Hybridoma technology and antibody engineering enable their production.</div>
+<div class="gl r" style="--i:4"><b>3</b> Clinical value depends on target biology, patient selection and safety.</div>
+<p class="big r" style="--i:5;color:var(--t)">Can targeting one molecule change the course of a disease?</p>
+</div></section>
+
+<section><div class="w">
+<span class="tag r">References</span>
+<h2><span data-d>References</span></h2>
+<ul class="refs r" style="--i:2"><li>1. Köhler G, Milstein C. Nature. 1975;256:495–497. doi:10.1038/256495a0</li><li>2. Malik B, Ghatol A. Monoclonal Antibodies in Clinical Practice. StatPearls, NCBI Bookshelf NBK572118.</li><li>3. Slamon DJ et al. N Engl J Med. 2001;344:783–792. doi:10.1056/NEJM200103153441101</li><li>4. FDA-approved labels: HERCEPTIN (trastuzumab); KEYTRUDA (pembrolizumab); SYNAGIS (palivizumab).</li><li>5. Jones TD et al. The INNs and outs of antibody nonproprietary names. mAbs. 2016;8:1–9. doi:10.1080/19420862.2015.1114320</li></ul>
+</div></section>
+
+<section class="fin"><div class="w">
+<span class="tag r">The end</span>
+<h1 class="r" style="--i:1">Aniket Nigam</h1>
+<p class="r" style="--i:2;margin-top:1vh">B.Sc. Biotechnology · 2nd Year</p>
+<p class="big r" style="--i:3;color:var(--t)">Questions?</p>
+</div></section>
+
+<div id="cnt"><b id="cn">01</b> / 12</div><div id="pg"></div><div id="sw"></div>
+<div id="rw">
+<button class="nav" id="up" aria-label="Previous page" title="Previous page"><svg viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg></button>
+<div id="ruler"><div id="ind"></div><div id="lab"></div></div>
+<button class="nav" id="dn" aria-label="Next page" title="Next page"><svg viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></svg></button>
+</div>
+
+<script>
+(function(){
+var R=Math.random,PI=Math.PI,$=function(s){return document.querySelector(s)},$$=function(s){return[].slice.call(document.querySelectorAll(s))};
+var cv=$('#c'),cx=cv.getContext('2d'),W,H,D;
+function rs(){W=innerWidth;H=innerHeight;D=Math.min(devicePixelRatio||1,2);cv.width=W*D;cv.height=H*D;cx.setTransform(D,0,0,D,0,0);tops=secs.map(function(s){return s.offsetTop})}
+var secs=$$('section'),NS=secs.length,tops=[];
+var N=innerWidth<700?1300:2400;
+function sph(){var u=R()*2-1,t=R()*2*PI,s=Math.sqrt(1-u*u);return[s*Math.cos(t),u,s*Math.sin(t)]}
+function Y(n,k,ox,oy,ha,hs){k=k||1;ox=ox||0;oy=oy||0;ha=ha==null?215:ha;hs=hs==null?160:hs;var S=[[[0,-1.3,0],[0,0,0],hs,0],[[0,0,0],[-.95,1.1,0],ha,1],[[0,0,0],[.95,1.1,0],ha,1]],o=[];
+ for(var i=0;i<n;i++){var g=S[R()*3|0],t=R(),d=sph(),r=.17*Math.sqrt(R()),h=g[2],gr=g[3];if(gr==1&&t>.9){h=355;gr=1}
+  o.push([(g[0][0]+(g[1][0]-g[0][0])*t+d[0]*r)*k+ox,(g[0][1]+(g[1][1]-g[0][1])*t+d[1]*r)*k+oy,(g[0][2]+d[2]*r)*k,h,gr])}return o}
+function fuse(n){var o=[];for(var i=0;i<n;i++){var d=sph(),q=R(),x,h,r=.65;if(q<.42){x=-.55;h=215}else if(q<.84){x=.55;h=355}else{x=0;h=160;r=.3}o.push([x+d[0]*r*(q>.84?1.6:1),d[1]*r,d[2]*r,h,0])}return o}
+function virus(n){var o=[],i,d,q;for(i=0;i<n;i++){q=R();if(q<.5){d=sph();o.push([d[0]*.7,d[1]*.7,d[2]*.7,355,0])}else if(q<.68){d=sph();var l=.7+R()*.3;o.push([d[0]*l,d[1]*l,d[2]*l,160,0])}else{var s=q<.84?-1:1;o.push(Y(1,.38,s*1.55,s*.25)[0])}}return o}
+function helix(n){var o=[];for(var i=0;i<n;i++){var t=(R()*2-1)*2.4*PI,s=R()<.5,a=t+(s?PI:0),y=t/(2.4*PI)*1.3;if(R()<.14){var u=R();o.push([Math.cos(t)*.7*(1-2*u),y,Math.sin(t)*.7*(1-2*u),160,0])}else o.push([Math.cos(a)*.7,y,Math.sin(a)*.7,s?215:355,0])}return o}
+function torus(n){var o=[];for(var i=0;i<n;i++){var u=R()*2*PI,v=R()*2*PI;o.push([(.9+.3*Math.cos(v))*Math.cos(u),.3*Math.sin(v),(.9+.3*Math.cos(v))*Math.sin(u),340+u*8,0])}return o}
+function gal(n){var o=[];for(var i=0;i<n;i++){var r=Math.pow(R(),.6)*1.4,a=r*3.2+(R()<.5?0:PI)+(R()-.5)*.5;o.push([Math.cos(a)*r,(R()-.5)*.12*(2-r),Math.sin(a)*r,215+r*100,0])}return o}
+function her2(n){var o=Y(n*.55|0,.75,0,.55,215,160).map(function(p){return[-p[0],-p[1],p[2],p[3],p[4]]});while(o.length<n){var x=(R()-.5)*3,z=(R()-.5)*1.6;o.push([x,-1.15,z,215,0])}return o}
+function plate(n){var o=[];for(var i=0;i<n;i++){var c=i%12,cxp=(c%4-1.5)*.75,cyp=((c/4|0)-1)*.75,a=R()*2*PI,r=.26;o.push([cxp+Math.cos(a)*r,cyp+Math.sin(a)*r,(R()-.5)*.1,[215,160,355][c%3],0])}return o}
+function four(n){var a=[],hs=[355,160,215,130],i;for(i=0;i<4;i++)a=a.concat(Y(n/4|0,.31,-1.02+i*.68,0,hs[i],hs[i]+60));while(a.length<n)a.push(a[0]);return a}
+function shell(n){var o=[];for(var i=0;i<n;i++){var d=sph();o.push([d[0]*1.1,d[1]*1.1,d[2]*1.1,215+d[1]*40,0])}return o}
+function nameShape(n){var c=document.createElement('canvas');c.width=900;c.height=420;var g=c.getContext('2d');
+g.font='800 170px -apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,Helvetica,Arial,sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText('THANK',450,115);g.fillText('YOU',450,305);
+var d=g.getImageData(0,0,900,420).data,p=[],x,y;for(y=0;y<420;y+=3)for(x=0;x<900;x+=3)if(d[(y*900+x)*4+3]>128)p.push([x,y]);
+var o=[],k=.00244;for(var i=0;i<n;i++){var q=p.length?p[R()*p.length|0]:[450,210];o.push([(q[0]-450+(R()-.5)*3)*k,-(q[1]-210+(R()-.5)*3)*k,(R()-.5)*.14,215+q[0]/900*140,0])}return o}
+var shapes=[Y(N,1.1),Y(N,1.1,0,0,355,215),fuse(N),four(N),virus(N),helix(N),her2(N),plate(N),torus(N),gal(N),shell(N),nameShape(N)];
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){shapes[shapes.length-1]=nameShape(N)});
+var P=new Float32Array(N*3),Hh=new Float32Array(N),SP=new Float32Array(N),i;
+for(i=0;i<N;i++){var d=sph();P[i*3]=d[0]*4;P[i*3+1]=d[1]*4;P[i*3+2]=d[2]*4;Hh[i]=240;SP[i]=.018+R()*.05}
+var spr=[];for(i=0;i<36;i++){var c=document.createElement('canvas');c.width=c.height=32;var g=c.getContext('2d'),gr=g.createRadialGradient(12,12,1,16,16,15);
+ var L=(i>=13&&i<=19)?24:42;gr.addColorStop(0,'hsla('+i*10+',88%,'+(L+8)+'%,.95)');gr.addColorStop(.45,'hsla('+i*10+',85%,'+L+'%,.62)');gr.addColorStop(1,'hsla('+i*10+',85%,'+L+'%,0)');g.fillStyle=gr;g.fillRect(0,0,32,32);spr.push(c)}
+var ez=0,pc=-1,root=document.documentElement,pg=$('#pg'),sw=$('#sw'),cur=0,mx=0,my=0,tx=0,ty=0,vel=0,hl=-1,waves=[],curEl=$('#cur');
+addEventListener('pointermove',function(e){tx=e.clientX/W-.5;ty=e.clientY/H-.5;curEl.style.left=e.clientX+'px';curEl.style.top=e.clientY+'px';
+ var g=e.target.closest&&e.target.closest('.gl');curEl.classList.toggle('h',!!(e.target.closest&&e.target.closest('.ch,.btn,#ruler,.nav')));
+ if(g){var r=g.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;g.style.setProperty('--mx',px*100+'%');g.style.setProperty('--my',py*100+'%');g.style.transform='perspective(700px) rotateX('+((.5-py)*5)+'deg) rotateY('+((px-.5)*7)+'deg)'}});
+addEventListener('pointermove',function(e){var b=$('#pdb'),r=b.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);b.style.transform=Math.hypot(dx,dy)<90?'translate('+dx*.25+'px,'+dy*.25+'px)':''});
+addEventListener('pointerout',function(e){var g=e.target.closest&&e.target.closest('.gl');if(g)g.style.transform=''});
+addEventListener('pointerdown',function(e){var g=e.target.closest&&e.target.closest('.gl');
+ if(!e.target.closest('#ruler')){var rg=document.createElement('div');rg.className='ring';rg.style.left=e.clientX+'px';rg.style.top=e.clientY+'px';document.body.appendChild(rg);setTimeout(function(){rg.remove()},900);waves.push({x:e.clientX,y:e.clientY,t:performance.now()/1000});if(waves.length>3)waves.shift()}
+ if(g){var r=g.getBoundingClientRect(),s=document.createElement('span'),m=Math.max(r.width,r.height)*2.2;s.className='rip';s.style.cssText='width:'+m+'px;height:'+m+'px;left:'+(e.clientX-r.left-m/2)+'px;top:'+(e.clientY-r.top-m/2)+'px';g.appendChild(s);setTimeout(function(){s.remove()},800)}});
+$$('.ch').forEach(function(el){el.addEventListener('click',function(e){if(e.target.closest('.btn'))return;
+ if(el.dataset.hl!==undefined){var on=!el.classList.contains('sel');$$('[data-hl]').forEach(function(x){x.classList.remove('sel')});if(on){el.classList.add('sel');hl=+el.dataset.hl}else hl=-1}else el.classList.toggle('open')})});
+var pdb=$('#pdb');pdb.onclick=function(e){e.stopPropagation();var b=$('#pdc').classList.toggle('blk');pdb.textContent=b?'Remove pembrolizumab':'Add pembrolizumab';$('#pdt').textContent=b?'Brake released: T cell active':'Brake ON: T cell inhibited'};
+function frame(ms){var T=ms/1000,tg=shapes[cur];mx+=(tx-mx)*.05;my+=(ty-my)*.05;ez+=((cur===shapes.length-1?1:0)-ez)*.04;
+ var ry=(T*.3+mx*1.1+vel*.02)*(1-ez)+(Math.sin(T*.7)*.3+mx*.5)*ez,rx=(my*.6-.12)*(1-ez*.5),cr=Math.cos(ry),sr=Math.sin(ry),cxr=Math.cos(rx),sxr=Math.sin(rx),wide=W>800;
+ var ox=(wide?W*.745:W*.46)*(1-ez)+W*.5*ez,oy=(wide?H*.5:H*.27)*(1-ez)+H*.62*ez+ez*Math.sin(T*1.1)*H*.022,sc=Math.min(W,H)*(wide?.31:.2)*(1-ez)+Math.min(W*.4,H*.3)*ez,ps=(W<700?10:14)*(1-.3*ez),av=Math.min(Math.abs(vel),60);
+ cx.clearRect(0,0,W,H);cx.globalCompositeOperation='source-over';
+ for(var i=0;i<N;i++){var a=tg[i],j=i*3,sp=SP[i];
+  P[j]+=(a[0]-P[j])*sp;P[j+1]+=(a[1]-P[j+1])*sp;P[j+2]+=(a[2]-P[j+2])*sp;Hh[i]+=(a[3]-Hh[i])*sp;
+  var x=P[j]+Math.sin(T*1.7+i)*.008,y=P[j+1]+Math.cos(T*1.3+i)*.008+ez*Math.sin(T*1.6+P[j]*2.5)*.06,z=P[j+2],x1=x*cr+z*sr,z1=-x*sr+z*cr,y1=y*cxr-z1*sxr,z2=y*sxr+z1*cxr,f=2.8/(2.8+z2),s=ps*f,px=ox+x1*sc*f,py=oy-y1*sc*f,al=Math.min(1,.35+f*.5);
+  if(av>2){px+=(R()-.5)*av*.9;py+=(R()-.5)*av*.9;s*=1+av*.012}
+  for(var k=0;k<waves.length;k++){var w=waves[k],age=T-w.t;if(age<1.4){var dx=px-w.x,dy=py-w.y,ds=Math.sqrt(dx*dx+dy*dy)+.01,rr=age*650,df=Math.abs(ds-rr);if(df<110){var q=(1-df/110)*46*(1-age/1.4);px+=dx/ds*q;py+=dy/ds*q}}}
+  if(hl>=0&&cur<2){if(a[4]==hl){s*=1.7;al=1}else al*=.35}
+  cx.globalAlpha=al;cx.drawImage(spr[((Hh[i]/10|0)%36+36)%36],px-s/2,py-s/2,s,s)}
+ cx.globalAlpha=1;requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+
+// ruler
+var ruler=$('#ruler'),ind=$('#ind'),lab=$('#lab'),NT=60,ticks=[],names=['Start','Basics','Hybridoma','Engineering','Mechanisms','Applications','Case study','Quality','Evaluation','Conclusion','References','Thank you'];
+for(i=0;i<NT;i++){var t=document.createElement('div');t.className='t';ruler.appendChild(t);ticks.push(t)}
+var cn=$('#cn'),lc=-1,idxf=0,lastY=scrollY,lastT=performance.now(),dec=0;
+var CH='ABCDEFGHJKLMNPRSTUVXYZ0123456789#%&';
+function decode(el){var t=el.dataset.t||(el.dataset.t=el.textContent),f=0;clearInterval(el._i);el._i=setInterval(function(){f++;var n=f/1.4;el.textContent=t.split('').map(function(c,k){return c===' '||k<n?c:CH[R()*CH.length|0]}).join('');if(n>=t.length){clearInterval(el._i);el.textContent=t}},36)}
+function upd(){var y=scrollY,h=innerHeight,now=performance.now(),dt=Math.max(now-lastT,8);vel+=((y-lastY)/dt*16-vel)*.2;lastY=y;lastT=now;
+ var best=0,bd=1e9,hv=ruler.clientHeight;
+ secs.forEach(function(s,k){var r=s.getBoundingClientRect(),p=(r.top+r.height/2-h/2)/h;s.style.setProperty('--p',Math.max(-1,Math.min(1,p)).toFixed(3));var d=Math.abs(r.top+r.height/2-h/2);if(d<bd){bd=d;best=k}
+  var on=r.top<h*.6&&r.bottom>h*.25;if(on&&!s.classList.contains('on')){s.classList.add('on');[].forEach.call(s.querySelectorAll('[data-d]'),decode)}else if(!on&&s.classList.contains('on')&&(r.top>h||r.bottom<0))s.classList.remove('on')});
+ var k=0;for(i=0;i<NS;i++)if(tops[i]<=y+h*.35)k=i;var nx=tops[k+1]!=null?tops[k+1]:tops[k]+secs[k].offsetHeight;idxf=k+Math.min(1,Math.max(0,(y+h*.35-tops[k])/Math.max(nx-tops[k],1)));
+ cur=best;if(cur!==lc){lc=cur;cn.textContent=cur<9?'0'+(cur+1):cur+1}var ms=root.scrollHeight-h;pg.style.transform='scaleX('+(ms>0?Math.min(1,y/ms):0)+')';root.style.setProperty('--sk',Math.max(-3,Math.min(3,vel*.08)).toFixed(2));if(cur!==pc){if(pc>=0){sw.classList.remove('go');void sw.offsetWidth;sw.classList.add('go')}pc=cur}
+ var tl=$('#tl'),r2=tl.getBoundingClientRect(),tp=Math.max(0,Math.min(1,(h*.8-r2.top)/(r2.height+h*.2)));tl.style.setProperty('--tp',tp);[].forEach.call(tl.children,function(e,n){e.classList.toggle('lit',tp>(n+.3)/6.2)});
+ var pos=idxf/(NS-1)*(hv-24)+12;ind.style.top=pos+'px';lab.style.top=pos+'px';lab.textContent=names[cur];
+ for(i=0;i<NT;i++){var ty=12+i/(NT-1)*(hv-24),d=Math.abs(ty-pos),stop=Math.abs((i/(NT-1))*(NS-1)-Math.round(i/(NT-1)*(NS-1)))<.09;ticks[i].style.top=ty+'px';ticks[i].style.width=(stop?20:11)+22*Math.exp(-d*d/1800)+'px'}
+ ticks.forEach(function(t,n){var ty=12+n/(NT-1)*(hv-24),stop=Math.abs((n/(NT-1))*(NS-1)-Math.round(n/(NT-1)*(NS-1)))<.09;t.className='t'+(stop?' s':'')})}
+(function loop(){upd();requestAnimationFrame(loop)})();
+function drag(e){var r=ruler.getBoundingClientRect(),f=Math.max(0,Math.min(1,(e.clientY-r.top-12)/(r.height-24))),v=f*(NS-1),k=Math.floor(v),fr=v-k,a=tops[k],b=tops[k+1]!=null?tops[k+1]:a;document.documentElement.style.scrollBehavior='auto';document.documentElement.style.scrollSnapType='none';scrollTo(0,a+(b-a)*fr-innerHeight*.35*(k>0?0:0))}
+var dn=false;ruler.addEventListener('pointerdown',function(e){dn=true;ruler.setPointerCapture(e.pointerId);ruler.style.cursor='grabbing';drag(e)});
+ruler.addEventListener('pointermove',function(e){if(dn)drag(e)});ruler.addEventListener('pointerup',function(){dn=false;ruler.style.cursor='grab';document.documentElement.style.scrollBehavior='';document.documentElement.style.scrollSnapType=''});
+var upB=$('#up'),dnB=$('#dn');
+function go(d){var y=scrollY,h=innerHeight,k=Math.max(0,Math.min(NS-1,Math.floor(idxf+.0001))),top=tops[k],bot=top+secs[k].offsetHeight;
+ if(d>0&&bot>y+h+40){scrollTo({top:Math.min(y+h*.8,bot-h),behavior:'smooth'});return}
+ if(d<0&&y>top+40){scrollTo({top:Math.max(top,y-h*.8),behavior:'smooth'});return}
+ var n=Math.max(0,Math.min(NS-1,k+d));scrollTo({top:tops[n],behavior:'smooth'})}
+upB.addEventListener('click',function(){go(-1)});dnB.addEventListener('click',function(){go(1)});
+setInterval(function(){upB.classList.toggle('off',cur<=0);dnB.classList.toggle('off',cur>=NS-1)},120);
+secs.forEach(function(sc,k){if(k>0&&k<NS-1){var n=document.createElement('i');n.className='num';n.textContent=k<10?'0'+k:k;sc.insertBefore(n,sc.firstChild)}});
+addEventListener('keydown',function(e){if((e.key==='f'||e.key==='F')&&!e.ctrlKey&&!e.metaKey){if(document.fullscreenElement)document.exitFullscreen();else if(root.requestFullscreen)root.requestFullscreen();return}var d={ArrowDown:1,PageDown:1,' ':1,ArrowRight:1,ArrowUp:-1,PageUp:-1,ArrowLeft:-1}[e.key];if(!d||(e.target.closest&&e.target.closest('button')))return;e.preventDefault();go(d)});
+addEventListener('load',rs);addEventListener('resize',rs);rs();var hh=parseInt((location.hash||'').slice(1),10);if(hh>0&&tops[hh-1]!=null)scrollTo(0,tops[hh-1]);
+})();
+</script></body></html>
